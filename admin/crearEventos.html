@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento Académico</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Crear Eventos</h1>
+    </header>
+
+    <main>
+        <div class="formulario-container">
+            <form id="eventoForm">
+                <div class="columnas">
+                    <div class="columna">
+                        <label for="titulo">Título del Evento</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Ej. Curso de Redes Avanzadas" required>
+
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe brevemente el evento" required></textarea>
+
+                        <label for="tipo">Tipo de Evento</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="curso">Curso</option>
+                            <option value="congreso">Congreso</option>
+                            <option value="webinar">Webinar</option>
+                            <option value="conferencia">Conferencia</option>
+                            <option value="socializacion">Socialización</option>
+                        </select>
+                    </div>
+                    <div class="columna">
+                        <label for="fechaInicio">Fecha de Inicio</label>
+                        <input type="date" id="fechaInicio" name="fechaInicio" required>
+
+                        <label for="fechaFin">Fecha de Fin</label>
+                        <input type="date" id="fechaFin" name="fechaFin" required>
+
+                        <label for="costo">Costo</label>
+                        <input type="text" id="costo" name="costo" placeholder="Ej. 50.00 o Gratis" required>
+
+                        <label for="modalidad">Modalidad</label>
+                        <select id="modalidad" name="modalidad" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="gratis">Gratis</option>
+                            <option value="pagado">Pagado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="boton-container">
+                    <button type="submit">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+      
+    </footer>
+
+    <script src="crearEven.js"></script>
+</body>
+</html>
