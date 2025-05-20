@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 // Configuración de la base de datos
-$host = 'localhost';
+$host = 'localhost'; //cambiar con lo de la base de datos
 $dbname = 'nombre_base_datos';
 $user = 'usuario';
 $password = 'contraseña';

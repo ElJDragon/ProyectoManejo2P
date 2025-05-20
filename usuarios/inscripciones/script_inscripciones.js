@@ -56,7 +56,7 @@ function enviarInscripcion(data) {
     // Simular envío a la API
     console.log('Datos a enviar:', data);
     
-    fetch('procesar_inscripcion.php', {
+    fetch('inscripcion.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

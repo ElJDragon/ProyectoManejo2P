@@ -1,30 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('inscripcionForm');
+    // Simular datos del dashboard (en un sistema real estos vendrían de la API)
+    setTimeout(() => {
+        document.getElementById('total-usuarios').textContent = '124';
+        document.getElementById('total-eventos').textContent = '8';
+        document.getElementById('total-inscripciones').textContent = '76';
+    }, 500);
+
+    // Navegación activa
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('nav ul li a');
     
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validar que al menos un interés esté seleccionado
-        const intereses = document.querySelectorAll('input[name="intereses[]"]:checked');
-        if (intereses.length === 0) {
-            alert('Por favor seleccione al menos un interés.');
-            return;
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
-        
-        // Validar términos y condiciones
-        const terminos = document.getElementById('terminos').checked;
-        if (!terminos) {
-            alert('Debe aceptar los términos y condiciones para continuar.');
-            return;
-        }
-        
-        // Si todo está correcto, enviar el formulario
-        alert('Formulario enviado con éxito. ¡Gracias por su inscripción!');
-        form.submit();
     });
-    
-    // Mejorar la experiencia de usuario en la fecha de nacimiento
-    const fechaNacimiento = document.getElementById('fecha_nacimiento');
-    const hoy = new Date().toISOString().split('T')[0];
-    fechaNacimiento.setAttribute('max', hoy);
 });
