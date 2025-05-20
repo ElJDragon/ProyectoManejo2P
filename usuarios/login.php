@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $password = $_POST['password'];
 
+    // Consulta con PDO (ya no pg_connect)
     $sql = "SELECT * FROM usuarios WHERE cor_usu = :correo";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':correo', $correo);
@@ -15,11 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && $password === $usuario['pas_usu']) { // Aquí podrías usar password_hash() en un futuro
+    if ($usuario && $password === $usuario['pas_usu']) {
         $_SESSION['usuario'] = $usuario['nom_pri_usu'];
         $_SESSION['rol'] = $usuario['id_rol_usu'];
 
-        // Redirigir según rol
         if ($_SESSION['rol'] == 1) {
             header("Location: ../admin/dashboard.php");
         } else {
@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
