@@ -88,6 +88,8 @@
                 </div>
                 
                 <button type="submit" class="btn-submit">Registrar Inscripción</button>
+                <button type="button" id="btnRegresar" class="btn-submit">Regresar</button>
+
             </form>
         </div>
     </main>
@@ -121,5 +123,29 @@
     </footer>
 
     <script src="script_inscripciones.js"></script>
+    <script>
+    document.getElementById('btnRegresar').addEventListener('click', function () {
+        const form = document.getElementById('formInscripcion');
+        let isModified = false;
+
+        // Recorremos todos los inputs y selects para verificar si se llenó algo
+        Array.from(form.elements).forEach(el => {
+            if ((el.tagName === 'INPUT' || el.tagName === 'SELECT') && el.type !== 'submit' && el.type !== 'button') {
+                if (el.value.trim() !== '') {
+                    isModified = true;
+                }
+            }
+        });
+
+        if (isModified) {
+            if (confirm("¿Estás seguro? Tus cambios se perderán.")) {
+                window.location.href = 'formInscripciones.html';
+            }
+        } else {
+            window.location.href = 'formInscripciones.html';
+        }
+    });
+</script>
+
 </body>
 </html>
