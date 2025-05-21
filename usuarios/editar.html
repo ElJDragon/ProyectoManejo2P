@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cambiar Contraseña</title>
+  <link rel="stylesheet" href="css/estilo2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Cambiar Contraseña</h1>
+    <nav>
+      <a href="inicio.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a>
+      <a href="../logout.html"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="formulario-contrasena">
+      <form id="cambiarContrasenaForm">
+        <div class="campo-formulario">
+          <label for="contrasena-actual"><i class="fas fa-lock"></i> Contraseña Actual:</label>
+          <div class="input-contenedor">
+            <input type="password" id="contrasena-actual" name="contrasena-actual" required>
+            <i class="fas fa-eye toggle-password" data-target="contrasena-actual"></i>
+          </div>
+        </div>
+        
+        <div class="campo-formulario">
+          <label for="nueva-contrasena"><i class="fas fa-key"></i> Nueva Contraseña:</label>
+          <div class="input-contenedor">
+            <input type="password" id="nueva-contrasena" name="nueva-contrasena" required>
+            <i class="fas fa-eye toggle-password" data-target="nueva-contrasena"></i>
+          </div>
+          <div class="requisitos-contrasena">
+            <p>La contraseña debe contener:</p>
+            <ul>
+              <li id="req-longitud"><i class="fas fa-check-circle"></i> Mínimo 8 caracteres</li>
+              <li id="req-mayuscula"><i class="fas fa-check-circle"></i> Al menos una mayúscula</li>
+              <li id="req-numero"><i class="fas fa-check-circle"></i> Al menos un número</li>
+              <li id="req-especial"><i class="fas fa-check-circle"></i> Al menos un carácter especial</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="campo-formulario">
+          <label for="confirmar-contrasena"><i class="fas fa-check-double"></i> Confirmar Nueva Contraseña:</label>
+          <div class="input-contenedor">
+            <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
+            <i class="fas fa-eye toggle-password" data-target="confirmar-contrasena"></i>
+          </div>
+          <span id="mensaje-coincidencia" class="mensaje-error"></span>
+        </div>
+        
+        <div class="acciones-formulario">
+          <button type="submit" class="btn-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
+          <button type="button" class="btn-cancelar" onclick="window.location.href='perfil.html'"><i class="fas fa-times"></i> Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="ASSETS/perfil.js"></script>
+</body>
+</html>
