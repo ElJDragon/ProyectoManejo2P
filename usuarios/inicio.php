@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: usuarios/login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,11 +18,11 @@
 <body>
 
   <header>
-    <h1>Bienvenido</h1>
+    <h1>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']) ?></h1>
     <nav>
       <a href="perfil.html">Perfil</a>
       <a href="eventos.html">Eventos</a>
-      <a href="../logout.html">Cerrar sesión</a>
+      <a href="../logout.php">Cerrar sesión</a>
     </nav>
   </header>
 
