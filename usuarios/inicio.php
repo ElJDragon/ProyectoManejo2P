@@ -20,8 +20,8 @@ if (!isset($_SESSION['usuario'])) {
   <header>
     <h1>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']) ?></h1>
     <nav>
-      <a href="perfil.html">Perfil</a>
-      <a href="eventos.html">Eventos</a>
+      <a href="perfil.php">Perfil</a>
+      <a href="eventos.php">Eventos</a>
       <a href="../logout.php">Cerrar sesión</a>
     </nav>
   </header>

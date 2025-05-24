@@ -1,14 +1,13 @@
-//  actualizado para el botón de Cambiar Contraseña
 document.addEventListener('DOMContentLoaded', function() {
-
-  // Botón de Cambiar Contraseña - ACTUALIZADO
+//cambiar contra
   const btnCambiarPass = document.querySelector('button:last-of-type');
   btnCambiarPass.addEventListener('click', function() {
-    // Redirección al formulario de cambio de contraseña
-    window.location.href = 'usuarios/editar.html';
+
+    // Redirige a editar.html correctamente desde perfil.php
+    window.location.href = 'editar.html';
   });
 
-  // Opcional: Añadir efectos hover a los botones
+  // Efectos hover
   const botones = document.querySelectorAll('button');
   botones.forEach(boton => {
     boton.addEventListener('mouseenter', function() {

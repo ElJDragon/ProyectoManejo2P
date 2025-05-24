@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: usuarios/login.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -26,11 +26,7 @@ $usuarioID = $_SESSION['cedula'];
     <nav>
       <a href="inicio.php"><i class="fas fa-home"></i> Inicio</a>
       <a href="eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a>
-
-      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
-
       <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
-
     </nav>
   </header>
 
@@ -38,15 +34,9 @@ $usuarioID = $_SESSION['cedula'];
     <section class="tarjeta-perfil">
       <img src="https://via.placeholder.com/120" alt="Foto de perfil" class="foto-perfil">
       <div class="datos-usuario">
-
-        <h2><i class="fas fa-user"></i> <?= htmlspecialchars($nombre_completo) ?></h2>
-        <p><i class="fas fa-envelope"></i> <?= htmlspecialchars($correo_mostrar) ?></p>
-        <p><i class="fas fa-user-circle"></i> Usuario: <?= htmlspecialchars($correo_mostrar) ?></p>
-
         <h2><i class="fas fa-user"></i> <?= htmlspecialchars($nombreCompleto) ?></h2>
         <p><i class="fas fa-envelope"></i> <?= htmlspecialchars($correo) ?></p>
         <p><i class="fas fa-user-circle"></i> Usuario: <?= htmlspecialchars($usuarioID) ?></p>
-
       </div>
     </section>
 
@@ -64,6 +54,7 @@ $usuarioID = $_SESSION['cedula'];
       <button><i class="fas fa-key"></i> Cambiar Contraseña</button>
     </section>
   </main>
+    <script src="../assets/js/perfil.js"></script>
 
 </body>
 </html>
