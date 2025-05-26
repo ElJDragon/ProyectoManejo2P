@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Evento Académico</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -15,7 +14,7 @@
 
     <main>
         <div class="formulario-container">
-            <form>
+            <form id="eventoForm">
                 <div class="columnas">
                     <div class="columna">
                         <label for="titulo">Título del Evento</label>
@@ -40,16 +39,17 @@
 
                         <label for="fechaFin">Fecha de Fin</label>
                         <input type="date" id="fechaFin" name="fechaFin" required>
+                        
+                        <label for="modalidad">Modalidad</label>
+                        <select id="modalidad" name="modalidad" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Gratis">Gratis</option>
+                            <option value="Pagado">Pagado</option>
+                        </select>
 
                         <label for="costo">Costo</label>
                         <input type="text" id="costo" name="costo" placeholder="Ej. 50.00 o Gratis" required>
 
-                        <label for="modalidad">Modalidad</label>
-                        <select id="modalidad" name="modalidad" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="gratis">Gratis</option>
-                            <option value="pagado">Pagado</option>
-                        </select>
                     </div>
                 </div>
                 <div class="boton-container">
@@ -63,5 +63,6 @@
       
     </footer>
 
+    <script src="crearEven.js"></script>
 </body>
 </html>
