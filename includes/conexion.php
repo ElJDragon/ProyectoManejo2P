@@ -1,18 +1,27 @@
 <?php
-// Parámetros de conexión
-$host = 'localhost';
-$port = '5432';
-$dbname = 'postgres'; // <-- Reemplázalo con el nombre real de tu base de datos
-$user = 'postgres';
-$password = 'root';
 
-try {
-    $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-    // Opciones para lanzar excepciones si ocurre un error
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Conexión exitosa";
-} catch (PDOException $e) {
-    echo "Error de conexión: " . $e->getMessage();
-    die();
+class Conexion {
+    private $conexion;
+
+    public function __construct() {
+        $host = "localhost";
+        $port = "5432";
+        $dbname = "gestion_cursos";
+        $user = "postgres";
+        $password = "ligacampeon";
+
+        $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
+        $this->conexion = pg_connect($conn_string);
+    }
+
+    public function getConexion() {
+        return $this->conexion;
+    }
+
+    public function cerrar() {
+        if ($this->conexion) {
+            pg_close($this->conexion);
+        }
+    }
 }
 ?>

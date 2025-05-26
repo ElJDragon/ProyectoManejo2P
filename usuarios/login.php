@@ -2,6 +2,7 @@
 session_start();
 include('../includes/conexion.php');
 
+
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error = "Correo o contraseña incorrectos.";
     }
+
 }
 ?>
 
