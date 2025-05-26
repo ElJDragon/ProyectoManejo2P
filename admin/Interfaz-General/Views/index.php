@@ -8,8 +8,9 @@
 <body>
     
     <?php
-    include_once (../coneccion.php );
-    Conection::conectar();
+    include_once '../../coneccion.php';
+    $con = new Conectionn();
+    $conexion = $con->conectar();
     ?>
 </body>
 </html>
