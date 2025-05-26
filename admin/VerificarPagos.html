@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verificar Pagos</title>
+<link rel="stylesheet" href="css/pagoestilo.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>Verificar Pagos</h2>
+    <label for="cedula">Cédula</label>
+    <input type="text" id="cedula" placeholder="Ingrese cédula" />
+
+    <button id="buscarBtn">Buscar Usuario</button>
+
+    <div class="user-info" id="userInfo">
+      <h3>Información del Usuario</h3>
+      <p><strong>Nombre:</strong> <span id="userName"></span></p>
+      <p><strong>Cédula:</strong> <span id="userCedula"></span></p>
+      <p><strong>Email:</strong> <span id="userEmail"></span></p>
+    </div>
+
+    <div class="event-section" id="eventSection">
+      <label for="eventSelect">Seleccione Evento</label>
+      <select id="eventSelect">
+        <option value="">-- Seleccione un evento --</option>
+        <option value="1">Concierto Rock</option>
+        <option value="2">Conferencia Tecnología</option>
+        <option value="3">Feria del Libro</option>
+      </select>
+
+      <table id="eventTable">
+        <thead>
+          <tr>
+            <th>Detalle</th>
+            <th>Información</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Datos dinámicos -->
+        </tbody>
+      </table>
+
+      <button id="confirmPagoBtn">Confirma Pago del Evento</button>
+    </div>
+  </div>
+
+<script src="pago.js"></script>
+</body>
+</html>
