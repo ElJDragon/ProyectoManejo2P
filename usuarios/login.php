@@ -1,38 +1,36 @@
 <?php
 session_start();
-require_once('../includes/conexion.php');
+include('../includes/conexion.php');
 
-$conexion = new Conexion();
-$conn = $conexion->getConexion();
 
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $password = $_POST['password'];
-    
 
-    $sql = "SELECT * FROM usuarios WHERE cor_usu = $1";
-    $result = pg_query_params($conn, $sql, array($correo));
+    // Consulta con PDO (ya no pg_connect)
+    $sql = "SELECT * FROM usuarios WHERE cor_usu = :correo";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':correo', $correo);
+    $stmt->execute();
 
-    if ($usuario = pg_fetch_assoc($result)) {
-        if ($password === $usuario['pas_usu']) {
-            $_SESSION['usuario'] = $usuario['nom_pri_usu'];
-            $_SESSION['rol'] = $usuario['id_rol_usu'];
-            $_SESSION['correo'] = $usuario['cor_usu'];
-            $_SESSION['cedula'] = $usuario['ced_usu'];
-            $_SESSION['id'] = $usuario['id_usu'];
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($_SESSION['rol'] == 1) {
-                header("Location: ../admin/dashboard.php");
-            } else {
-                header("Location: inicio.php");
-            }
-            exit();
+    if ($usuario && $password === $usuario['pas_usu']) {
+        $_SESSION['usuario'] = $usuario['nom_pri_usu'];
+        $_SESSION['rol'] = $usuario['id_rol_usu'];
+
+        if ($_SESSION['rol'] == 1) {
+            header("Location: ../admin/dashboard.php");
+        } else {
+            header("Location: inicio.php");
         }
+        exit();
+    } else {
+        $error = "Correo o contraseña incorrectos.";
     }
 
-    $error = "Correo o contraseña incorrectos.";
 }
 ?>
 
