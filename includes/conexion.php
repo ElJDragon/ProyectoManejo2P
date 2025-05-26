@@ -1,22 +1,26 @@
 <?php
-    // Parámetros de conexión
-    $host = "localhost";       // Dirección del servidor PostgreSQL
-    $port = "5432";            // Puerto por defecto
-    $dbname = "nombre_base";   // Reemplaza con el nombre de tu base de datos
-    $user = "postgres";        // Nombre de usuario (por defecto suele ser postgres)
-    $password = "tu_clave";    // Reemplaza con tu contraseña
+class Conexion {
+    private $conexion;
 
-    // Cadena de conexión
-    $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
+    public function __construct() {
+        $host = "localhost";
+        $port = "5432";
+        $dbname = "gestion_cursos";
+        $user = "postgres";
+        $password = "ligacampeon";
 
-    // Intentar conexión
-    $conexion = pg_connect($conn_string);
-
-    /*
-    if (!$conexion) {
-        echo "Error: No se pudo conectar a la base de datos.";
-    } else {
-        echo "Conexión exitosa a PostgreSQL.";
+        $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
+        $this->conexion = pg_connect($conn_string);
     }
-    */
+
+    public function getConexion() {
+        return $this->conexion;
+    }
+
+    public function cerrar() {
+        if ($this->conexion) {
+            pg_close($this->conexion);
+        }
+    }
+}
 ?>
