@@ -16,12 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // Validación y envío del formulario
-    formulario.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         
      // Validar fechas
         const fechaInicio = new Date(document.getElementById("fechaInicio").value);
         const fechaFin = new Date(document.getElementById("fechaFin").value);
+        const hoy = new Date();
+
+        hoy.setHours(0, 0, 0, 0);
+        fechaInicio.setHours(0, 0, 0, 0);
+        fechaFin.setHours(0, 0, 0, 0);
+
+        if (fechaInicio < hoy) {
+            alert("La fecha de inicio no puede ser anterior al día actual.");
+            return;
+        }
+
         if (fechaFin < fechaInicio) {
             alert("La fecha de fin no puede ser anterior a la fecha de inicio.");
             return;

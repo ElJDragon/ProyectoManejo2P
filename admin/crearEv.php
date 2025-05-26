@@ -37,7 +37,7 @@ try {
         $stmt->bindParam(':descripcion', $descripcion);
         $stmt->bindParam(':fechaInicio', $fechaInicio);
         $stmt->bindParam(':fechaFin', $fechaFin);
-        $stmt->bindParam(':costo', $costoNumerico);
+        $stmt->bindParam(':costo', $costo);
         $stmt->bindParam(':tipo', $tipo);
         $stmt->bindParam(':modalidad', $modalidad);
         
